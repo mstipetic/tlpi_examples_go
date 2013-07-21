@@ -34,7 +34,7 @@ func main() {
 		if numRead <= 0 {
 			break
 		}
-		numWritten, err = syscall.Write(outputFd, buf)
+		numWritten, err = syscall.Write(outputFd, buf[:numRead])
 		if numRead != numWritten || err != nil {
 			fmt.Println("Could not write the entire buffer")
 			return
